@@ -1,24 +1,27 @@
 const express = require('express');
 const router  = express.Router();
-const multer  = require('multer')
+var multer  = require('multer')
 const Product = require('../models/products');
 const TYPES    = require('../models/product-types');
 const TYPES2    = require('../models/tier-types');
+var upload = multer({ dest: './public/uploads/' });
 
 router.get('/new', (req, res) => {
   res.render('products/new', { types: TYPES, tier: TYPES2 });
 });
 
-router.post('/', (req, res, next) => {
+
+
+
+router.post('/', upload.single('imageUrl'), (req, res, next) => {
   const newProduct = new Product({
     name: req.body.name,
     description: req.body.description,
     category: req.body.category,
     tier: req.body.tier,
-    imageUrl: req.body.imageUrl
+    imageUrl: `uploads/${req.file.filename}`,
   });
-
-
+  console.log("BEFORE SAVING");
   newProduct.save( (err) => {
   if (err) {
     console.log(err);
@@ -28,7 +31,13 @@ router.post('/', (req, res, next) => {
   }
   });
 });
+router.get('/:id', (req, res, next) => {
+  Product.findById(req.params.id, (err, products) => {
+    if (err){ return next(err);}
+  return res.render('products/show', {product: products});
 
+});
+});
 
 
 module.exports = router;

@@ -10,5 +10,4 @@ const productSchema = new Schema({
   tier          : { type: String, enum: TYPES2, required: true},
 });
 
-const Product = mongoose.model('Product', productSchema);
-module.exports = Product;
+module.exports = mongoose.model('Product', productSchema);
