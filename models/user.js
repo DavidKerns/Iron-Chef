@@ -7,6 +7,7 @@ const userSchema = new Schema({
   password   : String,
   position   : String,
   address    : String,
+  tier       : String
   });
 
 const User = mongoose.model('User', userSchema);

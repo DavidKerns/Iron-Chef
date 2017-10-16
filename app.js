@@ -14,12 +14,14 @@ const bcrypt             = require('bcrypt');
 const multer             = require('multer')
 // const Subscription       = require('./models/subscription');
 const User               = require('./models/user');
-const Product          = require('./models/products');
+const Product            = require('./models/products');
+const Subscription       = require('./models/subscription');
 
 mongoose.connect('mongodb://localhost:27017/ironchef');
 const index = require('./routes/index');
 const authRoutes = require('./routes/authentication');
 const productRoutes = require('./routes/products');
+const subRoutes = require('./routes/subscription');
 
 const app = express();
 // view engine setup
@@ -141,6 +143,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use(authRoutes);
 app.use('/products', productRoutes);
+app.use('/subscriptions', subRoutes)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
