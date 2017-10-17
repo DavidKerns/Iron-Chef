@@ -10,6 +10,10 @@
       <div class="col-sm-8">
         <img class="products-image" src="/<%= products.imageUrl %>">
       </div>
+
+      <form action="/products/<%= products._id%>/delete" method="POST">
+    <button type="submit">Delete Product</button>
+  </form>
     </div>
   </div>
 <% }); %>

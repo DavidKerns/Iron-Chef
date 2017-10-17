@@ -21,9 +21,10 @@
         <div class="form-group">
           <label for="subTier">Subscription Tier</label>
           <select name="tier" id="tier">
-            <% tier.forEach((tier) => { %>
-              <option type="text" value="<%= tier %>" class="form-control"><%= tier %></option>
-            <%  }) %>
+                <option type="text" value="One Star" class="form-control">One Star</option>
+                <option type="text" value="Two Star" class="form-control">Two Star</option>
+                <option type="text" value="Three Star" class="form-control">Three Star</option>
+            </select>
           </select>
         </div>
         <div class="form-group">

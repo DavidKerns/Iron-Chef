@@ -9,9 +9,6 @@ router.get('/new', (req, res) => {
   res.render('products/new', { types: TYPES});
 });
 
-
-
-
 router.post('/', upload.single('imageUrl'), (req, res, next) => {
   const newProduct = new Product({
     name: req.body.name,
@@ -46,6 +43,14 @@ router.get('/:id', (req, res, next) => {
 
 });
 });
+router.post('/:id/delete', (req, res, next) => {
+  const id = req.params.id;
+
+  Product.findByIdAndRemove(id, (err, products) => {
+    if (err){ return next(err); }
+    return res.redirect('products/show');
+  });
+  });
 
 
 module.exports = router;

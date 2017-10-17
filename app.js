@@ -87,9 +87,10 @@ passport.use('local-signup', new LocalStrategy(
 	                  username: req.body.username,
 	                  password: hashPass,
 	                   // anything extra goes in here too
-                     address: req.body.address,
-	                    email: req.body.email,
+                      address : req.body.address,
+	                    email   : req.body.email,
 	                    position: req.body.position,
+                      interest: req.body.interest,
 
                     });
 
