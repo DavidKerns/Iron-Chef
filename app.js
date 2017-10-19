@@ -144,7 +144,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use(authRoutes);
 app.use('/products', productRoutes);
-app.use('/subscriptions', subRoutes)
+app.use('/subscription', subRoutes)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
