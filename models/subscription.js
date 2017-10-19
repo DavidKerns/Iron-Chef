@@ -4,8 +4,8 @@ const INTEREST = require('./interest-types');
 const subSchema = new Schema({
   title         : { type: String, required: true},
   description   : String,
-  image      : String,
-  interest      : [{ type:String, enum: INTEREST, required: true}]
+  interest      : [{ type:String, enum: INTEREST, required: true}],
+
 });
 
 module.exports = mongoose.model('Subscription', subSchema);

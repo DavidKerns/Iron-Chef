@@ -1,17 +1,18 @@
 module.exports =[
-  "fine-dining",
-  "at-home",
-  "cookbooks",
-  "tech",
-  "baking",
-  "knife",
-  "daily",
-  "family",
-  "health",
-  "veg",
-  "ethnic",
-  "start",
-  "fish",
-  "prep",
-  "surprise"
+
+  "Cooking At Home",
+  "Cook Books",
+  "Using Technology",
+  "Baking",
+  "Cutlery",
+  "Fine Dining",
+  "Everyday Cooking",
+  "Cooking for the Family",
+  "Healthy Living",
+  "Vegitarian/Vegan",
+  "Ethnic Cuisine",
+  "Just Starting Out",
+  "Seafood",
+  "Meal Prep",
+  "Surprise Me"
 ];
