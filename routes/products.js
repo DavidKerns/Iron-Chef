@@ -3,10 +3,11 @@ const router  = express.Router();
 var multer  = require('multer')
 const Product = require('../models/products');
 const TYPES    = require('../models/product-types');
-var upload = multer({ dest: './public/uploads/' });
+const INTEREST = require('../models/interest-types');
+var upload = multer({ dest: './public/uploads' });
 
 router.get('/new', (req, res) => {
-  res.render('products/new', { types: TYPES});
+  res.render('products/new', { types: TYPES, interest: INTEREST});
 });
 
 router.post('/', upload.single('imageUrl'), (req, res, next) => {
@@ -14,13 +15,13 @@ router.post('/', upload.single('imageUrl'), (req, res, next) => {
     name: req.body.name,
     description: req.body.description,
     category: req.body.category,
-    tier: req.body.tier,
+    interest: req.body.interest,
     imageUrl: `uploads/${req.file.filename}`,
   });
   newProduct.save( (err) => {
   if (err) {
     console.log(err);
-    res.render('products/new', { products: newProduct, types: TYPES});
+    res.render('products/new', { products: newProduct, types: TYPES, interest:INTEREST});
   } else {
     res.redirect(`/products/${newProduct._id}`);
   }

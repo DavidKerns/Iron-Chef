@@ -9,12 +9,12 @@ router.get('/new', (req, res) => {
   res.render('subscription/new');
 });
 
-router.post('/',upload.single('imageUrl'), (req, res, next) => {
+router.post('/', upload.single('image'), (req, res, next) => {
   const newSubscription = new Subscription({
     title: req.body.name,
     description: req.body.description,
     interest: req.body.interest,
-    imageUrl: `uploads/${req.file.filename}`
+    image: `uploads/${req.file.filename}`,
   });
   newSubscription.save( (err) => {
   if (err) {
