@@ -25,11 +25,15 @@ nav.navbar {
 }
 
 .logo-image {
-  height: 75%;
-  width: 80%;
-  margin-left: 10%;
+  height: 65%;
+  width: 70%;
+  margin-left: 15%;
 }
 
 .nav > .li-logout {
   padding: 7px;
+}
+#sub_footer {
+  text-align: center;
+
 }

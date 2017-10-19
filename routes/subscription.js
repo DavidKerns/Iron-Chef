@@ -1,16 +1,20 @@
 const express = require('express');
 const router  = express.Router();
+var multer  = require('multer')
 const Subscription = require('../models/subscription');
 const INTEREST = require('../models/interest-types');
+var upload = multer({ dest: './public/uploads/' });
+
 router.get('/new', (req, res) => {
   res.render('subscription/new');
 });
 
-router.post('/', (req, res, next) => {
+router.post('/',upload.single('imageUrl'), (req, res, next) => {
   const newSubscription = new Subscription({
     title: req.body.name,
     description: req.body.description,
-    interest: req.body.interest
+    interest: req.body.interest,
+    imageUrl: `uploads/${req.file.filename}`
   });
   newSubscription.save( (err) => {
   if (err) {

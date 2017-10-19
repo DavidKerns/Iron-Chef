@@ -25,7 +25,7 @@
        <div class="collapse navbar-collapse" id="home-nav">
          <ul class="nav navbar-nav">
            <li><a href="/about">About IronChef</a></li>
-           <li><a href="/tier">Subscriptions</a></li>
+           <li><a href="/subscription/show">Subscriptions</a></li>
            <li><a href="/products/show">View Products</a></li>
 
          </ul>
@@ -52,6 +52,21 @@
           <img  href="/" class="logo-image" src="/images/ironchef-logo.png" alt="IronChef">
       <%- body -%>
     </div>
+    <footer>
+    <fieldset id="sub_footer">
+      <legend name="subscribe">Subscribe Now!</legend>
+      <div>
+        <input type="checkbox" id="month" name="month" value="month">
+        <label for="month">Quarterly $25/every three months a new box</label>
+      </div>
+      <div>
+        <input type="checkbox" id="year" name="year" value="year">
+        <label for="year">Yearly $95/year and recive a box every three months</label>
+      </div>
+      <div class="subscribe-btn">
+        <button type="submit" name="button">Subscibe Now!</button>
+        <div>
+      </footer>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
