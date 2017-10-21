@@ -2,8 +2,8 @@
   <div class="row">
   <%  if (typeof subs !== "undefined" && subs.length > 0) { %>
       <% subs.forEach((subscription) => { %>
-      <div class="col-sm-10">
-        <h1><%= subscription.title %></h1>
+      <div class="col-sm-10 sub-show">
+        <h1 class="sub-title"><%= subscription.title %></h1>
 
         <h3 class="subscription-description"><%= subscription.description %></h3>
         <p class="subscription-category"><%= subscription.interest %></p>
@@ -22,11 +22,12 @@
 
 
   <% if (typeof subscription !== "undefined"){ %>
+    <div class="row">
     <div class="col-sm-10">
-      <h1>Boxes</h2>
-      <h1><%= subscription.title %></h1>
+      <h1 class="subbox">Subscription Boxes</h2>
+      <h1 class="sub-title"><%= subscription.title %></h1>
       <h3 class="subscription-description"><%= subscription.description %></h3>
-      <p3 class="subscription-category"><%= subscription.interest %></p>
+      <p class="subscription-category"><%= subscription.interest %></p>
 
     </div>
   </div>

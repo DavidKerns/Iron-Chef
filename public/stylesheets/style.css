@@ -35,5 +35,22 @@ nav.navbar {
 }
 #sub_footer {
   text-align: center;
+}
 
+.subbox {
+  text-align: center;
+}
+
+.sub-title, .sub-now{
+  text-align: center;
+}
+
+.sub-now{
+  padding-top: 10%;
+
+}
+.sub-show{
+  text-align: center;
+  padding: 2% 3% 2% 3%;
+  border-bottom: 1px solid black;
 }
