@@ -41,6 +41,35 @@ router.get('/:id', (req, res, next) => {
 
 });
 });
+router.get('/:id/edit', (req, res, next) => {
+  Subscription.findById(req.params.id, (err, subscription) => {
+    if (err)       { return next(err) }
+    if (!subscription) { return next(new Error("404")) }
+    return res.render('subscription/edit', { subscription, types: INTEREST })
+  });
+});
+router.post('/:id', (req, res, next) => {
+  const updates = {
+    title: req.body.title,
+    description: req.body.description,
+    interest: req.body.interest
+  };
+
+Subscription.findByIdAndUpdate(req.params.id, updates, (err, subscription) => {
+    if (err) {
+      return res.render('subscription/edit', {
+        subscription,
+        errors: subscription.errors
+      });
+    }
+    if (!subscription) {
+      return next(new Error('404'));
+    }
+    return res.redirect(`/subscription/${subscription._id}`);
+  });
+  });
+
+
 router.post('/:id/delete', (req, res, next) => {
   const id = req.params.id;
 

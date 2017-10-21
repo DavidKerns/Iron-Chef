@@ -51,6 +51,7 @@ nav.navbar {
 }
 .sub-show{
   text-align: center;
-  padding: 2% 3% 2% 3%;
-  border-bottom: 1px solid black;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  border: 1px solid black;
 }

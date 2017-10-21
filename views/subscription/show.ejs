@@ -3,10 +3,10 @@
   <%  if (typeof subs !== "undefined" && subs.length > 0) { %>
       <% subs.forEach((subscription) => { %>
       <div class="col-sm-10 sub-show">
-        <h1 class="sub-title"><%= subscription.title %></h1>
+        <a href="/subscription/<%= subscription._id %>"><h1 class="sub-title"><%= subscription.title %></h1></a>
 
         <h3 class="subscription-description"><%= subscription.description %></h3>
-        <p class="subscription-category"><%= subscription.interest %></p>
+        <p class="subscription-category"><%= subscription.interest %> </p>
       </div>
     </div>
     <div class="row">
