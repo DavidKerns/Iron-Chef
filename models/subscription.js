@@ -4,6 +4,7 @@ const INTEREST = require('./interest-types');
 const subSchema = new Schema({
   title         : { type: String, required: true},
   description   : String,
+  imageUrl      : String,
   interest      : [{ type:String, enum: INTEREST, required: true}],
 
 });

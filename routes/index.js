@@ -3,17 +3,17 @@ var router = express.Router();
 const Subscription = require('../models/subscription');
 const INTEREST = require('../models/interest-types');
 const User = require('../models/user');
-
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/',ensureLoggedIn('/login'), (req, res, next) => {
   validSubs= [];
   console.log(req.user.interest);
 
   Subscription.find({}, (err, subscription) => {
-
+    console.log(subscription);
     if (err) { return next(err) }
-  req.subscription.forEach(function(x){
+  subscription.forEach(function(x){
     let validCounter = 0;
     x.interest.forEach(function(y){
     if(req.user.interest.indexOf(y) != -1)
@@ -22,7 +22,8 @@ router.get('/', (req, res, next) => {
     if(validCounter > 1)
       validSubs.push(x);
   })
-  res.render('index');
+  console.log( "hello world", validSubs);
+  res.render('index', validSubs);
 
 });
 });

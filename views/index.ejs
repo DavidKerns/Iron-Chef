@@ -5,7 +5,16 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <div class="container might-be-interested">
+      <div class="row">
+        <h3 class="user-interest">Our subscription boxes you might be intersted</h3>
+        <% validSubs.forEach((validSubs) => { %>
 
-    <footer><p>IronChef</p></footer>
+        <a href="/subscription/<%= validSubs._id %>"><h4 class="sub-title"><%= validSubs.title %></a>
+          <p class="subscription-description"><%= validSubs.description %></p>
+      </div>
+    </div>
+            <% }); %>
+
   </body>
 </html>
