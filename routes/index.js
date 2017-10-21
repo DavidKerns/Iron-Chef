@@ -7,11 +7,12 @@ const User = require('../models/user');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  Subscription.find({}, (err, subscription) => {
-    if (err) { return next(err) }
   validSubs= [];
   console.log(req.user.interest);
 
+  Subscription.find({}, (err, subscription) => {
+
+    if (err) { return next(err) }
   req.subscription.forEach(function(x){
     let validCounter = 0;
     x.interest.forEach(function(y){
