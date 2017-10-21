@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/products/<%= products._id %>" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="form-control" value="<%= products.name %>">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control">
+            <%= products.description %>
+          </textarea>
+        </div>
+        <div class="form-group">
+          <fieldset>
+              <legend name="interest">Interests</legend>
+              <div>
+                <input type="checkbox" id="fine-dining" name="interest" value="fine-dining">
+                <label for="fine-dining">Fine Dining</label>
+              </div>
+              <div>
+                <input type="checkbox" id="at-home" name="interest" value="at-home">
+                <label for="at-home">Cooking At Home </label>
+              </div>
+              <div>
+                <input type="checkbox" id="cookbooks" name="interest" value="cookbooks">
+                <label for="cookbooks">Cook Books</label>
+              </div>
+              <div>
+                <input type="checkbox" id="tech" name="interest" value="tech">
+                <label for="tech">Using Technology</label>
+              </div>
+              <div>
+                <input type="checkbox" id="baking" name="interest" value="baking">
+                <label for="baking">Baking</label>
+              </div>
+              <div>
+                <input type="checkbox" id="knife" name="interest" value="knife">
+                <label for="knife">Cutlery</label>
+              </div>
+              <div>
+                <input type="checkbox" id="daily" name="interest" value="daily">
+                <label for="daily">Everyday Cooking</label>
+              </div>
+              <div>
+                <input type="checkbox" id="family" name="interest" value="family">
+                <label for="family">Cooking for the Family</label>
+              </div>
+              <div>
+                <input type="checkbox" id="health" name="interest" value="health">
+                <label for="health">Healthy Living</label>
+              </div>
+              <div>
+                <input type="checkbox" id="veg" name="interest" value="veg">
+                <label for="veg">Vegitarian/Vegan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="ethnic" name="interest" value="ethnic">
+                <label for="ethnic">Ethnic Cuisine</label>
+              </div>
+              <div>
+                <input type="checkbox" id="start" name="interest" value="start">
+                <label for="start">Just Starting Out</label>
+              </div>
+              <div>
+                <input type="checkbox" id="fish" name="interest" value="fish">
+                <label for="fish">Seafood</label>
+              </div>
+              <div>
+                <input type="checkbox" id="prep" name="interest" value="prep">
+                <label for="prep">Meal Prep</label>
+              </div>
+              <div>
+                <input type="checkbox" id="surprise" name="interest" value="surprise">
+                <label for="surprise">Surprise Me</label>
+              </div>
+              <label for= "image">Add Picture</label>
+                <input type="file" name="imageUrl">
+              </div>
+        <div class="form-group">
+          <button type="submit">Update Product</button>
+        </div>
+      </form>
+    </div>
+    <% if (typeof(errors) !== 'undefined'){ %>
+  <div class="alert alert-danger">
+  <ul>
+    <% for (let error in errors){ %>
+      <li><%= errors[error].message %></li>
+    <% } %>
+  </ul>
+  </div>
+
+<% } %>
+<form action="/products/<%= products._id%>/delete" method="POST">
+<button type="submit">Delete Product</button>
+  </div>
+</div>

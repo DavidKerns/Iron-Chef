@@ -33,7 +33,7 @@ router.get('/show', (req, res, next) => {
     (err, products) => {
       if (err){ return next(err);}
 
-    return res.render('products/show', {products: products})
+    return res.render('products/show', {pros: products})
   });
 });
 
@@ -44,6 +44,38 @@ router.get('/:id', (req, res, next) => {
 
 });
 });
+
+router.get('/:id/edit', (req, res, next) => {
+  Product.findById(req.params.id, (err, products) => {
+    if (err)       { return next(err) }
+    if (!products) { return next(new Error("404")) }
+    return res.render('products/edit', { products, types: TYPES, interest: INTEREST })
+  });
+});
+router.post('/:id', (req, res, next) => {
+  const updates = {
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      interest: req.body.interest,
+      imageUrl: `uploads/${req.file.filename}`,
+  };
+
+Product.findByIdAndUpdate(req.params.id, updates, (err, products) => {
+    if (err) {
+      return res.render('products/edit', {
+        subscription,
+        errors: products.errors
+      });
+    }
+    if (!subscription) {
+      return next(new Error('404'));
+    }
+    return res.redirect(`/products/${products._id}`);
+  });
+  });
+
+
 router.post('/:id/delete', (req, res, next) => {
   const id = req.params.id;
 
