@@ -1,12 +1,11 @@
 *{
-  background-image: url(./images/background);
   font-family: 'Poppins', sans-serif;
 }
 
 body {
 
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
@@ -31,9 +30,10 @@ nav.navbar {
 }
 
 .logo-image {
-  height: 65%;
-  width: 70%;
-  margin-left: 15%;
+  height: 17%;
+  width: 17%;
+  margin-left: 7%;
+  padding-bottom: 2%;
 }
 
 .nav > .li-logout {
@@ -60,4 +60,36 @@ nav.navbar {
   margin-top: 2%;
   padding-bottom: 2%;
   border: 1px solid black;
+}
+#background-photo {
+  background: url("images/slider.jpg");
+  background-size: cover;
+
+}
+
+.center-sugg {
+  text-align: center;
+}
+.user-interest{
+  text-align: center;
+
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  color: #3366FF;
+}
+a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid #909090;
+  transition: 0.4s;
+}
+
+a:hover:after {
+  width: 100%;
 }
