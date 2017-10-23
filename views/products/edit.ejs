@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 centered-form">
-      <form action="/products/<%= products._id %>" method="post">
+      <form action="/products/<%= products._id %>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" name="title" class="form-control" value="<%= products.name %>">

@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-var multer  = require('multer')
+var multer  = require('multer');
 const Subscription = require('../models/subscription');
 const INTEREST = require('../models/interest-types');
 var upload = multer({ dest: './public/uploads' });
@@ -9,12 +9,12 @@ router.get('/new', (req, res) => {
   res.render('subscription/new');
 });
 
-router.post('/',upload.single('imageUrl'), (req, res, next) => {
+router.post('/', upload.single('subImageUrl'), (req, res, next) => {
   const newSubscription = new Subscription({
     title: req.body.name,
     description: req.body.description,
     interest: req.body.interest,
-    imageUrl: `uploads/${req.file.filename}`
+    subImageUrl: `uploads/${req.file.filename}`,
   });
   newSubscription.save( (err) => {
   if (err) {
@@ -52,7 +52,8 @@ router.post('/:id', (req, res, next) => {
   const updates = {
     title: req.body.title,
     description: req.body.description,
-    interest: req.body.interest
+    interest: req.body.interest,
+    subImageUrl: `uploads/${req.file.filename}`,
   };
 
 Subscription.findByIdAndUpdate(req.params.id, updates, (err, subscription) => {
@@ -75,7 +76,7 @@ router.post('/:id/delete', (req, res, next) => {
 
   Subscription.findByIdAndRemove(id, (err, subscription) => {
     if (err){ return next(err); }
-    return res.redirect('subscription/show');
+    return res.redirect('/');
   });
   });
 
