@@ -7,18 +7,34 @@
   <body>
 
 
-    <div id="background-photo"></div>
+    <div>
+      <img class="mySlides animate-top" src="/images/slider.jpg">
+      <img class="mySlides animate-top" src="/images/slider.1.jpg">
+      <img class="mySlides animate-top" src="/images/slider2.jpg">
+      <img class="mySlides animate-top" src="/images/slider3.jpg">
+    </div>
+    <div>
+    <div class="row about">
+      <a href="/about"><h1>About IronChef</h1></a>
+      <h2> IronChef is a subscription based system for professional chefs, line cooks, and everyday at home chefs.</h2>
+      <p>Based on your interests we will personalize the box we send you. Every two months IronChef will send you a package of differnet items to take your cooking to a whole new level. We have items for all skill levels with subscription service. Discover a whole side of your culinary skills that you never knew you had! Try your hand at baking, foods of the world, cooking with your family, using the tools that your favorite chef's use, and if you feel bold we can surprise you all together!</p>
+    </div>
+  </div>
     <div class="container might-be-interested">
-      <div class="row">
+      <div class="row user-interest">
         <h3 class="center-sugg">Our subscription boxes you might be intersted in</h3>
-        <div class="user-interest col-sm-4 col-xs-12"><% validSubs.forEach((validSubs) => { %>
+        <% validSubs.forEach((validSubs) => { %>
+        <div class=" col-lg-2">
 
         <a href="/subscription/<%= validSubs._id %>"><h4 class="sub-title"><%= validSubs.title %></a>
           <p class="subscription-description"><%= validSubs.description %></p>
+
         </div>
+        <% }); %>
+
       </div>
     </div>
-            <% }); %>
+
 
   </body>
 </html>

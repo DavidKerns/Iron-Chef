@@ -4,6 +4,7 @@ var multer  = require('multer');
 const Subscription = require('../models/subscription');
 const INTEREST = require('../models/interest-types');
 var upload = multer({ dest: './public/uploads' });
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 router.get('/new', (req, res) => {
   res.render('subscription/new');

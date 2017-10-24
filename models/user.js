@@ -7,7 +7,8 @@ const userSchema = new Schema({
   password   : String,
   position   : String,
   address    : String,
-  interest   : []
+  interest   : [],
+  prevOrder  : []
   });
 
 const User = mongoose.model('User', userSchema);

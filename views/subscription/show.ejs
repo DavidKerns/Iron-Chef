@@ -1,24 +1,24 @@
 <div class="container subscription-container">
-  <div class="row">
+  <div class="col-12 title-subs"><h1>Our Personalized Boxes</h1>
   <%  if (typeof subs !== "undefined" && subs.length > 0) { %>
-      <% subs.forEach((subscription) => { %>
-      <div class="col-sm-4 col-xs-12">
+
+      <div class="row">
+        <% subs.forEach((subscription) => { %>
+      <div class="col-lg-3  show-subs">
         <a href="/subscription/<%= subscription._id %>"><h1 class="sub-title"><%= subscription.title %></h1></a>
 
         <h3 class="subscription-description"><%= subscription.description %></h3>
         <p class="subscription-category"><%= subscription.interest %> </p>
-
-    </div>
-    <div class="row">
-      <div class="col-sm-8">
         <img class="subscription-image" src="/<%= subscription.subImageUrl %>">
       </div>
+      <% }); %>
     </div>
+
     </div>
 
   </div>
 
-      <% }); %>
+
       <footer><a href="/subscription/new">New subscription</a>
   <% } %>
 
@@ -27,8 +27,7 @@
 
   <% if (typeof subscription !== "undefined"){ %>
     <div class="row">
-    <div class="col-sm-10">
-      <h1 class="subbox">Subscription Boxes</h2>
+    <div class="col-sm-10 show-subs">
       <h1 class="sub-title"><%= subscription.title %></h1>
       <h3 class="subscription-description"><%= subscription.description %></h3>
       <p class="subscription-category"><%= subscription.interest %></p>
@@ -40,6 +39,8 @@
       <img class="subscription-image" src="/<%= subscription.subImageUrl %>">
     </div>
   </div>
-  <footer><a href="/subscription/<%= subscription._id %>/edit">Edit subscription</a>
+  <footer>
+    <a href="/subscription/show"><button class="que" type="select">Send this to me next!</button></a>
+    <a href="/subscription/<%= subscription._id %>/edit">Edit subscription</a>
 </div>
   <% } %>
