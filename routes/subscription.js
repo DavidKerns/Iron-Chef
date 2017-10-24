@@ -27,17 +27,26 @@ router.post('/', upload.single('subImageUrl'), (req, res, next) => {
   });
 });
 router.get('/show', (req, res, next) => {
-  Subscription.find(
-    {},
-    (err, subscription) => {
+  Subscription.find({},  (err, subscription) => {
       if (err){ return next(err);}
 
     return res.render('subscription/show', {subs: subscription})
   });
 });
 router.get('/:id', (req, res, next) => {
+  var order =[]
   Subscription.findById(req.params.id, (err, subscription) => {
     if (err){ return next(err);}
+
+      function addtoQue() {
+        $(".que").click(function() {
+          order.push(req.subscription)
+        });
+
+
+
+
+
   return res.render('subscription/show', {subscription: subscription});
 
 });

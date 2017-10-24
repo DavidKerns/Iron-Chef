@@ -12,3 +12,9 @@ function carousel() {
     x[myIndex-1].style.display = "block";
     setTimeout(carousel, 5000);
 }
+$(document).ready(function(){
+$(".que").click(function() {
+  alert("Box will be sent on your next order!");
+
+})
+});
