@@ -30,6 +30,17 @@
           <p class="subscription-description"><%= validSubs.description %></p>
 
         </div>
+        <div class="row user-interest">
+          <h3 class="que">Your Next Box to be Delivered</h3>
+          <% user.forEach((user) => { %>
+          <div class=" col-lg-2">
+
+          <a href="/subscription/<%= subscription._id %>"><h4 class="que-title"><%= user.subscription.nextOrder.title %></a>
+            <p class="nextOrder-description"><%= user.subscription.nextOrder.description %></p>
+              <% }); %>
+          </div>
+
+
         <% }); %>
 
       </div>

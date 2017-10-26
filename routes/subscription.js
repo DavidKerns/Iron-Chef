@@ -66,15 +66,15 @@ router.post('/new/:id', ensureLoggedIn('/'), (req, res, next) =>{
 
       // if current sub is different than .next
       const updates = {
-        $push: { 'req.user.subscriptions.pending': req.user.subscriptions.nextOrder },
-        $set: { 'req.user.subscriptions.nextOrder': currentSub }
+        $push: { subscriptions: { pending: req.user.subscriptions.nextOrder } },
+        $set: { subscriptions: { nextOrder: currentSub } }
       };
 
       User.findByIdAndUpdate(
         req.user._id,
-        update,
+        updates,
         (err, newSub) => {
-          console.log('FIRST USER FIND BYIDUPDATE IF DIFFERENT', user);
+          console.log('FIRST USER FIND BYIDUPDATE IF DIFFERENT');
 
           if (err) { return next(err); }
 
@@ -87,16 +87,16 @@ router.post('/new/:id', ensureLoggedIn('/'), (req, res, next) =>{
 
     // if no subscriptions.next is found
  console.log('req.user.subscriptions.nextOrder~~~~~~~~~',req.user.subscriptions.nextOrder);
-    // const newUpdate = {
-    //   'req.user.subscriptions.nextOrder': currentSub
-    //   // $push: { 'req.user.subscriptions.pending': currentSub}
-    // };
+    const newUpdate = {
+       $set: { subscriptions : { nextOrder: currentSub } }
+      // $push: { 'req.user.subscriptions.pending': currentSub}
+    };
 
     // console.log('NEW UPDATE!!!!!!~~~~',newUpdate);
 
     User.findByIdAndUpdate(
       req.user._id,
-      { 'req.user.subscriptions.nextOrder': currentSub },
+      newUpdate,
       (err, user) => {
         console.log('SECOND USER FINDBYIDUPDATE IF NO SUB', user);
         if (err) { return next(err); }
