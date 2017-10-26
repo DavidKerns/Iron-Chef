@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 var multer  = require('multer');
 const Subscription = require('../models/subscription');
+const User = require('../models/user');
 const INTEREST = require('../models/interest-types');
 var upload = multer({ dest: './public/uploads' });
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
@@ -26,6 +27,7 @@ router.post('/', upload.single('subImageUrl'), (req, res, next) => {
   }
   });
 });
+
 router.get('/show', (req, res, next) => {
   Subscription.find({},  (err, subscription) => {
       if (err){ return next(err);}
@@ -33,24 +35,82 @@ router.get('/show', (req, res, next) => {
     return res.render('subscription/show', {subs: subscription})
   });
 });
+
 router.get('/:id', (req, res, next) => {
-  var order =[]
   Subscription.findById(req.params.id, (err, subscription) => {
     if (err){ return next(err);}
 
-      function addtoQue() {
-        $(".que").click(function() {
-          order.push(req.subscription)
-        });
-
-
-
-
-
   return res.render('subscription/show', {subscription: subscription});
 
+
+  });
 });
+
+
+
+router.post('/new/:id', ensureLoggedIn('/'), (req, res, next) =>{
+
+  Subscription.findById(req.params.id, (err, currentSub) => {
+    console.log('IN THE FIRST FINDBYID!!!!', currentSub);
+    if (err) { return next(err); }
+
+    // if user has a subscription in subscriptions.next
+    if (req.user.subscriptions.nextOrder) {
+
+
+      // if current sub is the same as .next
+      if (req.user.subscriptions.nextOrder.title === currentSub.title) {
+        console.log('CURRENT SUB TITLE',currentSub.title)
+        return res.redirect('/');
+      }
+
+      // if current sub is different than .next
+      const updates = {
+        $push: { 'req.user.subscriptions.pending': req.user.subscriptions.nextOrder },
+        $set: { 'req.user.subscriptions.nextOrder': currentSub }
+      };
+
+      User.findByIdAndUpdate(
+        req.user._id,
+        update,
+        (err, newSub) => {
+          console.log('FIRST USER FIND BYIDUPDATE IF DIFFERENT', user);
+
+          if (err) { return next(err); }
+
+          return res.redirect('/');
+        }
+      );
+      return;
+    } // end the if user has a subscription in subscriptions.next
+
+
+    // if no subscriptions.next is found
+ console.log('req.user.subscriptions.nextOrder~~~~~~~~~',req.user.subscriptions.nextOrder);
+    // const newUpdate = {
+    //   'req.user.subscriptions.nextOrder': currentSub
+    //   // $push: { 'req.user.subscriptions.pending': currentSub}
+    // };
+
+    // console.log('NEW UPDATE!!!!!!~~~~',newUpdate);
+
+    User.findByIdAndUpdate(
+      req.user._id,
+      { 'req.user.subscriptions.nextOrder': currentSub },
+      (err, user) => {
+        console.log('SECOND USER FINDBYIDUPDATE IF NO SUB', user);
+        if (err) { return next(err); }
+
+
+        console.log('NOT GETTING AN ERROR~~~~~~');
+        return res.redirect('/');
+      }
+    );
+
+  });
 });
+
+
 router.get('/:id/edit', (req, res, next) => {
   Subscription.findById(req.params.id, (err, subscription) => {
     if (err)       { return next(err) }
@@ -58,6 +118,7 @@ router.get('/:id/edit', (req, res, next) => {
     return res.render('subscription/edit', { subscription, types: INTEREST })
   });
 });
+
 router.post('/:id', (req, res, next) => {
   const updates = {
     title: req.body.title,

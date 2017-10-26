@@ -40,7 +40,9 @@
     </div>
   </div>
   <footer>
-    <a href="/subscription/show"><button class="que" type="select">Send this to me next!</button></a>
+    <form action="/subscription/new/<%= subscription._id %>" method="post">
+      <button class="que" type="select">Send this to me next!</button>
+    </form>
     <a href="/subscription/<%= subscription._id %>/edit">Edit subscription</a>
 </div>
   <% } %>

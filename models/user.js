@@ -8,7 +8,11 @@ const userSchema = new Schema({
   position   : String,
   address    : String,
   interest   : [],
-  prevOrder  : []
+  subscriptions: {
+    nextOrder  : {type: {}, defaul: {}},
+    pending    : [Schema.Types.ObjectId],
+    prevOrder  : [Schema.Types.ObjectId]
+  }
   });
 
 const User = mongoose.model('User', userSchema);

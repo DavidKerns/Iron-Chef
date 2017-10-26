@@ -16,8 +16,8 @@ const multer             = require('multer')
 const User               = require('./models/user');
 const Product            = require('./models/products');
 const Subscription       = require('./models/subscription');
-
-mongoose.connect('mongodb://localhost:27017/ironchef');
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI);
 const index = require('./routes/index');
 const authRoutes = require('./routes/authentication');
 const productRoutes = require('./routes/products');
