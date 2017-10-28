@@ -48,66 +48,31 @@ router.get('/:id', (req, res, next) => {
 
 
 
-router.post('/new/:id', ensureLoggedIn('/'), (req, res, next) =>{
+router.post('/user/:id/subscription', ensureLoggedIn('/'), (req, res, next) =>{
+  console.log("INSIDE POST /user/:id/subscription");
 
-  Subscription.findById(req.params.id, (err, currentSub) => {
-    console.log('IN THE FIRST FINDBYID!!!!', currentSub);
+  if (req.user) {
+  User.findById(req.user._id, (err, ReturnedUser) => {
     if (err) { return next(err); }
+    console.log(ReturnedUser.username);
+  console.log("USER DEF", ReturnedUser);
+  ReturnedUser.pendingSubscriptions.push(req.params.id);
+  ReturnedUser.nextOrder = req.params.id;
 
-    // if user has a subscription in subscriptions.next
-    if (req.user.subscriptions.nextOrder) {
-
-
-      // if current sub is the same as .next
-      if (req.user.subscriptions.nextOrder.title === currentSub.title) {
-        console.log('CURRENT SUB TITLE',currentSub.title)
-        return res.redirect('/');
-      }
-
-      // if current sub is different than .next
-      const updates = {
-        $push: { subscriptions: { pending: req.user.subscriptions.nextOrder } },
-        $set: { subscriptions: { nextOrder: currentSub } }
-      };
-
-      User.findByIdAndUpdate(
-        req.user._id,
-        updates,
-        (err, newSub) => {
-          console.log('FIRST USER FIND BYIDUPDATE IF DIFFERENT');
-
-          if (err) { return next(err); }
-
-          return res.redirect('/');
-        }
-      );
-      return;
-    } // end the if user has a subscription in subscriptions.next
-
-
-    // if no subscriptions.next is found
- console.log('req.user.subscriptions.nextOrder~~~~~~~~~',req.user.subscriptions.nextOrder);
-    const newUpdate = {
-       $set: { subscriptions : { nextOrder: currentSub } }
-      // $push: { 'req.user.subscriptions.pending': currentSub}
-    };
-
-    // console.log('NEW UPDATE!!!!!!~~~~',newUpdate);
-
-    User.findByIdAndUpdate(
-      req.user._id,
-      newUpdate,
-      (err, user) => {
-        console.log('SECOND USER FINDBYIDUPDATE IF NO SUB', user);
-        if (err) { return next(err); }
-
-
-        console.log('NOT GETTING AN ERROR~~~~~~');
-        return res.redirect('/');
-      }
-    );
-
-  });
+console.log("ReturnedUser", ReturnedUser);
+  ReturnedUser.save((err) =>{
+    if(err){
+    return next(err);
+  }else {
+    return res.redirect("/");
+  }
+});
+ //  User.findById(req.user._id, (err, User) =>{
+ //    if (err) {
+ //      return next (new Error("404"));
+ // }
+    });
+};
 });
 
 

@@ -15,8 +15,8 @@
     </div>
     <div>
     <div class="row about">
-      <a href="/about"><h1>About IronChef</h1></a>
-      <h2> IronChef is a subscription based system for professional chefs, line cooks, and everyday at home chefs.</h2>
+      <a href="/about"><h1 class="about-title">About IronChef</h1></a>
+      <h2 class="about-subtitle"> IronChef is a subscription based system for professional chefs, cooks just starting out, and everyone in between.</h2>
       <p>Based on your interests we will personalize the box we send you. Every two months IronChef will send you a package of differnet items to take your cooking to a whole new level. We have items for all skill levels with subscription service. Discover a whole side of your culinary skills that you never knew you had! Try your hand at baking, foods of the world, cooking with your family, using the tools that your favorite chef's use, and if you feel bold we can surprise you all together!</p>
     </div>
   </div>
@@ -32,23 +32,15 @@
         </div>
           <% }); %>
           </div>
-        <div class="row">
-          <h3 class="que">Your Next Box to be Delivered</h3>
-
-          <div class=" col-lg-2">
-
-          <h4 class="que-title"><%= user.subscriptions.nextOrder.title %></h4>
-
-
-          </div>
-
-
-
-
-
-      </div>
-
-
-
+          <%  if (typeof(user) !== "undefined"){ console.log("INSIDE IF");%>
+          <%  if (user.nextOrder != undefined){%>
+            <div class="row">
+              <h3 class="que">Your Next Box to be Delivered</h3>
+              <div class=" col-lg-2">
+              <h4 class="que-title"><%= user.nextOrder %></h4>
+            </div>
+        </div>
+          <%}%>
+          <%}%>
   </body>
 </html>

@@ -15,6 +15,7 @@ nav.navbar {
   box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
   margin-bottom: 4%;
   background-color: white;
+  padding-bottom: 0%;
 
 }
 
@@ -33,7 +34,7 @@ nav.navbar {
 .logo-image {
   height: 17%;
   width: 17%;
-  margin-left: 7%;
+  margin-right: 10%;
   padding-bottom: 2%;
 }
 
@@ -50,7 +51,7 @@ nav.navbar {
 
   margin-top: 2%;
   padding-bottom: 2%;
-  border: 1px solid black;
+  border: 1px solid white;
 }
 .might-be-interested{
   padding-top: 10%;
@@ -63,6 +64,7 @@ nav.navbar {
 
 .sub-title{
   font-size: 30px;
+  color: #76323F;
 }
 .user-interest{
 
@@ -95,10 +97,18 @@ a:hover:after {
 
 .show-subs {
   position: relative;
-  border: 1px solid black;
-  margin-left: 5%;
-  margin-left: 5%;
+  border: 1px solid white;
+  box-shadow: 10px 10px 10px 0 rgba(22,22,22,0.08);
+  margin: 2%;
+  padding-bottom: 3%;
+  height: 55%;
+  width: 28%;
 
+}
+
+.specific-sub{
+  max-width: 50%;
+  max-height: 50%
 }
 .mySlides {
   width: 100%;
@@ -110,13 +120,22 @@ a:hover:after {
   padding-top: 4%;
   padding-bottom: 3%;
   border-bottom: 1px solid grey;
-  color: #76323F;
+
 }
 
 
 .mySlides{
   transition: width 2s;
   -webkit-transition: width 2s;
+}
+.products-page {
+  border: 1px solid white;
+  box-shadow: 10px 10px 10px 0 rgba(22,22,22,0.08);
+  position: relative;
+  margin: 2%;
+  padding-bottom: 3%;
+  height: 60%;
+  width: 28%;
 }
 
 .products-image{
@@ -125,10 +144,18 @@ a:hover:after {
 }
 
 .products-page-image {
-  max-width: 150%;
-  max-height: 150%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .que  {
   margin-top: 20%;
+}
+
+.about-title {
+  color: white;
+}
+
+.about-subtitle{
+  color:#76323F;
 }

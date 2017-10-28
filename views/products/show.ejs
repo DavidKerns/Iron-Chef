@@ -1,24 +1,18 @@
 <div class="container products-container">
-  <div class="row">
+
     <%  if (typeof pros !== "undefined" && pros.length > 0) { %>
+      <div class="row">
     <% pros.forEach((products) => { %>
-    <div class="col-sm-2">
-      <div class="col-sm-10">
-      <a href="/products/<%= products._id %>"><h1><%= products.name %></h1></a>
 
-      
-
-      <img class="products-page-image" src="/<%= products.imageUrl %>">
+      <div class="col-lg-3 products-page">
+        <img class="products-page-image" src="/<%= products.imageUrl %>">
+        <a href="/products/<%= products._id %>"><h4><%= products.name %></h4></a>
       </div>
-
-
-
-    </div>
-  </div>
-
-  </div>
-
   <% }); %>
+</div>
+
+</div>
+
 <footer><a href="/products/new">Add New Product</a></footer>
 <% } %>
 
@@ -28,9 +22,9 @@
 <% if (typeof products !== "undefined"){ %>
   <div class="row">
   <div class="col-sm-10">
-    <h1 class="product">Product</h2>
+
     <h1 class="product-name"><%= products.name %></h1>
-    <h3 class="product-description"><%= products.name %></h3>
+    <h3 class="product-description"><%= products.description %></h3>
 
     <img class="products-image" src="/<%= products.imageUrl %>">
   </div>
