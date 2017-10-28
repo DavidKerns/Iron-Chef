@@ -1,6 +1,6 @@
 *{
   font-family: 'Poppins', sans-serif;
-  text-align: center;
+
 
 }
 
@@ -34,7 +34,7 @@ nav.navbar {
 .logo-image {
   height: 17%;
   width: 17%;
-  margin-right: 10%;
+  margin-left: 4%;
   padding-bottom: 2%;
 }
 
@@ -163,5 +163,5 @@ a:hover:after {
 .product {
   float: right;
   max-width: 40%
-  
+
 }
