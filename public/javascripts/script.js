@@ -11,10 +11,9 @@ function carousel() {
     if (myIndex > x.length) {myIndex = 1}
     x[myIndex-1].style.display = "block";
     setTimeout(carousel, 5000);
+};
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+    (document.getElementById('autocomplete')),
+    {types:['geocode']});
 }
-// let order = []
-// $(document).ready(function(){
-// $(".que").click(function() {
-//   order.push()
-//
-// })
