@@ -1,9 +1,11 @@
 *{
   font-family: 'Poppins', sans-serif;
+  text-align: center;
+
 }
 
 body {
-
+  background-color: #D7CEC7;
   padding: 50px;
 
 }
@@ -11,7 +13,9 @@ body {
 
 nav.navbar {
   box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
-  margin-bottom: 0;
+  margin-bottom: 4%;
+  background-color: white;
+
 }
 
 .nav > li > a {
@@ -36,24 +40,14 @@ nav.navbar {
 .nav > .li-logout {
   padding: 7px;
 }
-#sub_footer {
-  text-align: center;
-}
 
-.subbox {
-  text-align: center;
-}
-
-.sub-title, .sub-now{
-  text-align: center;
-}
 
 .sub-now{
   padding-top: 10%;
 
 }
 .sub-show{
-  text-align: center;
+
   margin-top: 2%;
   padding-bottom: 2%;
   border: 1px solid black;
@@ -64,10 +58,14 @@ nav.navbar {
 
 }
 .center-sugg {
-  text-align: center;
+  font-size: 48px;
+}
+
+.sub-title{
+  font-size: 30px;
 }
 .user-interest{
-  text-align: center;
+
 
 }
 
@@ -92,7 +90,7 @@ a:hover:after {
   color: black;
 }
 .title-subs{
-  text-align: center;
+
 }
 
 .show-subs {
@@ -100,22 +98,37 @@ a:hover:after {
   border: 1px solid black;
   margin-left: 5%;
   margin-left: 5%;
-  text-align: center;
+
 }
 .mySlides {
   width: 100%;
-  height: 75%;
+  height: 90%;
 }
 
 .about{
-  text-align: center;
+
   padding-top: 4%;
   padding-bottom: 3%;
   border-bottom: 1px solid grey;
+  color: #76323F;
 }
 
 
 .mySlides{
   transition: width 2s;
   -webkit-transition: width 2s;
+}
+
+.products-image{
+  max-width: 40%;
+  max-height: 40%;
+}
+
+.products-page-image {
+  max-width: 150%;
+  max-height: 150%;
+}
+
+.que  {
+  margin-top: 20%;
 }

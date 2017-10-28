@@ -4,24 +4,26 @@
     <% pros.forEach((products) => { %>
     <div class="col-sm-2">
       <div class="col-sm-10">
-      <h1><%= products.name %></h1>
+      <a href="/products/<%= products._id %>"><h1><%= products.name %></h1></a>
 
-      <h3 class="products-description"><%= products.description %></h3>
-      <p class="products-category"><%= products.category %></p>
+      
 
-      <div class="col-sm-8">
-        <img class="products-image" src="/<%= products.imageUrl %>">
+      <img class="products-page-image" src="/<%= products.imageUrl %>">
       </div>
 
 
-  </form>
+
     </div>
   </div>
 
   </div>
+
   <% }); %>
+<footer><a href="/products/new">Add New Product</a></footer>
 <% } %>
+
 </div>
+
 
 <% if (typeof products !== "undefined"){ %>
   <div class="row">
@@ -29,14 +31,10 @@
     <h1 class="product">Product</h2>
     <h1 class="product-name"><%= products.name %></h1>
     <h3 class="product-description"><%= products.name %></h3>
-    <p class="subscription-category"><%= products.interest %></p>
 
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-8">
-    <img class="product-image" src="<%= products.imageUrl %>">
+    <img class="products-image" src="/<%= products.imageUrl %>">
   </div>
 </div>
 </div>
+<a href="/products/<%= products._id %>/edit">Edit product</a>
   <% } %>

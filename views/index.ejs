@@ -26,25 +26,28 @@
         <% validSubs.forEach((validSubs) => { %>
         <div class=" col-lg-2">
 
-        <a href="/subscription/<%= validSubs._id %>"><h4 class="sub-title"><%= validSubs.title %></a>
+        <a href="/subscription/<%= validSubs._id %>"><h4 class="sub-title"><%= validSubs.title %></h4></a>
           <p class="subscription-description"><%= validSubs.description %></p>
 
         </div>
-        <div class="row user-interest">
+          <% }); %>
+          </div>
+        <div class="row">
           <h3 class="que">Your Next Box to be Delivered</h3>
-          <% user.forEach((user) => { %>
+
           <div class=" col-lg-2">
 
-          <a href="/subscription/<%= subscription._id %>"><h4 class="que-title"><%= user.subscription.nextOrder.title %></a>
-            <p class="nextOrder-description"><%= user.subscription.nextOrder.description %></p>
-              <% }); %>
+          <h4 class="que-title"><%= user.subscriptions.nextOrder.title %></h4>
+
+
           </div>
 
 
-        <% }); %>
+
+
 
       </div>
-    </div>
+
 
 
   </body>

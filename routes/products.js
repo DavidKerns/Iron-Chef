@@ -81,7 +81,7 @@ router.post('/:id/delete', (req, res, next) => {
 
   Product.findByIdAndRemove(id, (err, products) => {
     if (err){ return next(err); }
-    return res.redirect('products/show');
+    return res.redirect('/show');
   });
   });
 
