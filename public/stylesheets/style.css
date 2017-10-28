@@ -159,3 +159,8 @@ a:hover:after {
 .about-subtitle{
   color:#76323F;
 }
+
+.product {
+  float: right;
+  max-width: 40%
+}

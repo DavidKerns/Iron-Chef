@@ -6,7 +6,8 @@ const subSchema = new Schema({
   description   : String,
   subImageUrl   : String,
   interest      : [{ type:String, enum: INTEREST, required: true}],
-  
+
 });
 
 module.exports = mongoose.model('Subscription', subSchema);
+  
