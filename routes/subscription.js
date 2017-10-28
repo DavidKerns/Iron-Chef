@@ -49,7 +49,7 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/user/:id/subscription', ensureLoggedIn('/'), (req, res, next) =>{
-  console.log("INSIDE POST /user/:id/subscription");
+  console.log("INSIDE hello /user/:id/subscription");
 
   if (req.user) {
   User.findById(req.user._id, (err, ReturnedUser) => {
