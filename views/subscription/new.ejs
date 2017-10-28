@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 centered-form">
-      <form action="/subscription" method="post" enctype="multipart/form-data" >
+      <form action="/subscription" method="post" >
         <div class="form-group">
-          <label for="name">Title</label>
-          <input type="text" name="name" class="form-control">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="form-control">
         </div>
         <div class="form-group">
           <label for="description">Description</label>
@@ -75,11 +75,6 @@
             </div>
           </fieldset>
         </div>
-        <div>
-        <label for= "image">Add Picture</label>
-          <input type="file" name="subImageUrl">
-        </div>
-
           <button type="submit">Add Subscription</button>
     </form>
     </div>

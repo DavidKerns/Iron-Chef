@@ -11,12 +11,12 @@ router.get('/new', (req, res) => {
   res.render('subscription/new');
 });
 
-router.post('/', upload.single('subImageUrl'), (req, res, next) => {
+router.post('/',(req, res, next) => {
   const newSubscription = new Subscription({
-    title: req.body.name,
+    title: req.body.title,
     description: req.body.description,
     interest: req.body.interest,
-    subImageUrl: `uploads/${req.file.filename}`,
+
   });
   newSubscription.save( (err) => {
   if (err) {
@@ -89,7 +89,7 @@ router.post('/:id', (req, res, next) => {
     title: req.body.title,
     description: req.body.description,
     interest: req.body.interest,
-    subImageUrl: `uploads/${req.file.filename}`,
+
   };
 
 Subscription.findByIdAndUpdate(req.params.id, updates, (err, subscription) => {
