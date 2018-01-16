@@ -32,7 +32,7 @@ router.get('/show', (req, res, next) => {
   Subscription.find({},  (err, subscription) => {
       if (err){ return next(err);}
 
-    return res.render('subscription/show', {subs: subscription})
+    return res.render('subscription/show', {subs: subscription});
   });
 });
 

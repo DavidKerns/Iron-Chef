@@ -1,0 +1,28 @@
+<div class="container subsciption-container">
+
+    <%  if (typeof subs !== "undefined" && subs.length > 0) { %>
+      <div class="row">
+    <% subs.forEach((subscription) => { %>
+      <div class="col-lg-3 subsciption-page">
+        <a href="/subscriptions/<%= subscription._id %>"><h4><%= subscription.name %></h4></a>
+      </div>
+  <% }); %>
+</div>
+</div>
+<footer><a href="/subscription/new">Add New subsciption</a></footer>
+<% } %>
+
+</div>
+
+
+<% if (typeof subsciptions !== "undefined"){ %>
+  <div class="row">
+  <div class="col-sm-10 subscription">
+    <h1 class="subsciption-name"><%= subsciptions.name %></h1>
+    <h3 class="subsciption-description"><%= subsciptions.description %></h3>
+    </div>
+  </div>
+  </div>
+</div>
+<a href="/subscription/<%= subsciptions._id %>/edit">Edit subsciption</a>
+  <% } %>
