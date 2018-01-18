@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-var multer  = require('multer')
+var multer  = require('multer');
 const Product = require('../models/products');
 const TYPES    = require('../models/product-types');
 const INTEREST = require('../models/interest-types');

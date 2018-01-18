@@ -21,18 +21,14 @@
 
 <% if (typeof products !== "undefined"){ %>
   <div class="row">
-  <div class="col-sm-10 product">
+  <div class="col-sm-10">
 
     <h1 class="product-name"><%= products.name %></h1>
     <h3 class="product-description"><%= products.description %></h3>
-    </div>
 
-
-    <img class=" col-sm-10 products-image" src="/<%= products.imageUrl %>">
+    <img class="products-image" src="/<%= products.imageUrl %>">
   </div>
-  </div>
-
-
+</div>
 </div>
 <a href="/products/<%= products._id %>/edit">Edit product</a>
   <% } %>

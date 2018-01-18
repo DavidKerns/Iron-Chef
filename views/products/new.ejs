@@ -19,7 +19,101 @@
           </select>
         </div>
         <div class="form-group">
+          <<div class="container">
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/products" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input type="text" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label><br>
+          <select name="category" id="category">
+            <% types.forEach((category) => { %>
+              <option type="text" value="<%= category %>" class="form-control"><%= category %></option>
+            <%  }) %>
+          </select>
+        </div>
+        <div class="form-group">
           <fieldset>
+              <legend name="interest">Interests</legend>
+              <div>
+                <input type="checkbox" id="fine-dining" name="interest" value="Fine Dining">
+                <label for="Fine Dining">Fine Dining</label>
+              </div>
+              <div>
+                <input type="checkbox" id="at-home" name="interest" value="Cooking At Home">
+                <label for="Cooking At Home">Cooking At Home </label>
+              </div>
+              <div>
+                <input type="checkbox" id="cookbooks" name="interest" value="Cook Books">
+                <label for="Cook Books">Cook Books</label>
+              </div>
+              <div>
+                <input type="checkbox" id="tech" name="interest" value="Using Technology">
+                <label for="Using Technology">Using Technology</label>
+              </div>
+              <div>
+                <input type="checkbox" id="baking" name="interest" value="Baking">
+                <label for="Baking">Baking</label>
+              </div>
+              <div>
+                <input type="checkbox" id="knife" name="interest" value="Cutlery">
+                <label for="Cutlery">Cutlery</label>
+              </div>
+              <div>
+                <input type="checkbox" id="daily" name="interest" value="Everyday Cooking">
+                <label for="Everyday Cooking">Everyday Cooking</label>
+              </div>
+              <div>
+                <input type="checkbox" id="family" name="interest" value="Cooking for the Family">
+                <label for="Cooking for the Family">Cooking for the Family</label>
+              </div>
+              <div>
+                <input type="checkbox" id="health" name="interest" value="Healthy Living">
+                <label for="Healthy Living">Healthy Living</label>
+              </div>
+              <div>
+                <input type="checkbox" id="veg" name="interest" value="Vegitarian/Vegan">
+                <label for="Vegitarian/Vegan">Vegitarian / Vegan</label>
+              </div>
+              <div>
+                <input type="checkbox" id="ethnic" name="interest" value="Ethnic Cuisine">
+                <label for="Ethnic Cuisine">Ethnic Cuisine</label>
+              </div>
+              <div>
+                <input type="checkbox" id="start" name="interest" value="Just Starting Out">
+                <label for="Just Starting Out">Just Starting Out</label>
+              </div>
+              <div>
+                <input type="checkbox" id="fish" name="interest" value="Seafood">
+                <label for="Seafood">Seafood</label>
+              </div>
+              <div>
+                <input type="checkbox" id="prep" name="interest" value="Meal Prep">
+                <label for="Meal Prep">Meal Prep</label>
+              </div>
+              <div>
+                <input type="checkbox" id="surprise" name="interest" value="Surprise Me">
+                <label for="Surprise Me">Surprise Me</label>
+              </div>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for= "image">Add Picture</label>
+            <input type="file" name="imageUrl">
+          </div>
+          <button type="submit">Add Product</button>
+    </form>
+    </div>
+  </div>
+</div>
+>
               <legend name="interest">Interests</legend>
               <div>
                 <input type="checkbox" id="fine-dining" name="interest" value="Fine Dining">

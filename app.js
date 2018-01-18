@@ -151,7 +151,7 @@ app.use( (req, res, next) => {
 app.use('/', index);
 app.use(authRoutes);
 app.use('/products', productRoutes);
-app.use('/subscription', subRoutes)
+app.use('/subscription', subRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

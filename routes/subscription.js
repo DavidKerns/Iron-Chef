@@ -11,12 +11,12 @@ router.get('/new', (req, res) => {
   res.render('subscription/new');
 });
 
-router.post('/',(req, res, next) => {
+router.post('/', upload.single('subImageUrl'), (req, res, next) => {
   const newSubscription = new Subscription({
-    title: req.body.title,
+    title: req.body.name,
     description: req.body.description,
     interest: req.body.interest,
-
+    subImageUrl: `uploads/${req.file.filename}`,
   });
   newSubscription.save( (err) => {
   if (err) {
@@ -32,7 +32,7 @@ router.get('/show', (req, res, next) => {
   Subscription.find({},  (err, subscription) => {
       if (err){ return next(err);}
 
-    return res.render('subscription/show', {subs: subscription});
+    return res.render('subscription/show', {subs: subscription})
   });
 });
 
@@ -49,7 +49,7 @@ router.get('/:id', (req, res, next) => {
 
 
 router.post('/user/:id/subscription', ensureLoggedIn('/'), (req, res, next) =>{
-  console.log("INSIDE hello /user/:id/subscription");
+  console.log("INSIDE POST /user/:id/subscription");
 
   if (req.user) {
   User.findById(req.user._id, (err, ReturnedUser) => {
@@ -89,7 +89,7 @@ router.post('/:id', (req, res, next) => {
     title: req.body.title,
     description: req.body.description,
     interest: req.body.interest,
-
+    subImageUrl: `uploads/${req.file.filename}`,
   };
 
 Subscription.findByIdAndUpdate(req.params.id, updates, (err, subscription) => {
